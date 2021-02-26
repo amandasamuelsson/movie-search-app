@@ -1,32 +1,42 @@
+import { Row, Col } from 'antd';
 import Layout from 'antd/lib/layout/layout';
 import React, { CSSProperties } from 'react'; 
-import background from '../../assets/background.png';
-
-
 
 
 function WelcomeTitle() {
     return (
-        <Layout>
-            <img src={background} alt="backgroundPicture" style={backgroundImageStyle} />
-
-            <div style={welcomeTextStyle}> 
-                <h1>Welcome to your favourite movie search app!</h1>
-                <h2>Search for movies, see the details and rating, add them to your watchlist</h2>
-            </div>
+        <Layout style={layoutStyle}> 
+            <Row>
+                <Col span={24}>
+                    <h1 style={headline}>Welcome to your favourite movie search app! <br />
+                    Search for movies, see the details and rating, add them to your watchlist.</h1> 
+                </Col>
+            </Row>
         </Layout>
-
     )
 }
 
-const backgroundImageStyle: CSSProperties={
-    backgroundSize: 'cover', 
-}
-
-const welcomeTextStyle: CSSProperties ={
-    color: 'white', 
-
+const layoutStyle: CSSProperties = {
+    backgroundImage: 'url(https://github.com/amandasamuelsson/movie-search-app/blob/master/src/assets/background.png?raw=true)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100vh',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    padding: '2rem',
     
 }
+
+const headline: CSSProperties = {
+    color: 'white',
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center'
+}
+
+
 
 export default WelcomeTitle; 
