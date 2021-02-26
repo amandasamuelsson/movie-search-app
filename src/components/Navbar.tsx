@@ -11,7 +11,7 @@ function Navbar () {
 return ( 
  
 <Layout style={layoutStyle}>
-  <Header style={{background: 'black', textDecoration:'none'}}>
+  <Header style={{background: 'black', borderBottom:'none'}}>
     <img src= {logo} alt="logo" style={logoStyle} />
     <Menu mode="horizontal" style= {menuStyle}>
       <Menu.Item key="1">Home</Menu.Item>
@@ -44,9 +44,9 @@ const menuStyle: CSSProperties = {
   background: 'black', 
   color: 'white', 
   display: 'flex', 
-  justifyContent: 'space-evenly',
+  justifyContent: 'space-between',
   alignItems: 'center', 
-  textDecorationLine : 'none'
+  marginTop: '1.2rem'
 }
 
 const logoStyle: CSSProperties = {
