@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MovieDetails from './components/movieDetails/MovieDetails';
+import SearchView from './components/searchPage/SearchView';
 
 function App() {
   return (
-    <MovieDetails/>
+    //<MovieDetails/>
+    //<TableSearchResults/>
+    //<TitleSearch/>
+    <SearchView/>
   );
 }
 
