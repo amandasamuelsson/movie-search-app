@@ -1,27 +1,24 @@
 import { Row, Col } from 'antd';
-import { Input, Space } from 'antd';
 import Layout from 'antd/lib/layout/layout';
 import React, { CSSProperties } from 'react'; 
+import SearchInput from './SearchInput';
 
-
-const { Search } = Input;
 
 function WelcomeTitle() {
-    const onSearch = (value: String) => console.log(value);
 
     return (
         <Layout style={layoutStyle}> 
             <Row>
                 <Col span={24}>
-                    <h1 style={headline}>Welcome to your favourite movie search app! <br />
-                    Search for movies, see the details and rating, add them to your watchlist.</h1> 
+                    <h1 style={headline}>Welcome to your favourite movie search app!</h1>
+                    <h3 style={tagline}>Search for movies, see the details and rating, add them to your watchlist.</h3> 
                 </Col>
             </Row>
-            <div>
-            <Space direction="vertical">
-                <Search style={searchInput} placeholder="Search for a movie" onSearch={onSearch} enterButton />
-            </Space>
-            </div>  
+            <Row>
+                <Col span={24}>
+                    <SearchInput />
+                </Col>
+            </Row>
         </Layout>
     )
 }
@@ -29,29 +26,30 @@ function WelcomeTitle() {
 const layoutStyle: CSSProperties = {
     backgroundImage: 'url(https://github.com/amandasamuelsson/movie-search-app/blob/master/src/assets/background.png?raw=true)',
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
     width: '100%',
     height: '100vh',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'white',
     padding: '2rem',
+    marginTop: '-6rem',
     
 }
 
 const headline: CSSProperties = {
     color: 'white',
-    fontSize: '2rem',
+    fontSize: '3rem',
     fontWeight: 'bold',
-    justifyContent: 'center',
-    alignItems: 'center'
+    textAlign: 'center',
 }
 
-const searchInput: CSSProperties = {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+const tagline: CSSProperties = {
+    color: 'white',
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: '3.2rem',
 }
-
 
 export default WelcomeTitle; 

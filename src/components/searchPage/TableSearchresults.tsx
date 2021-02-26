@@ -22,7 +22,6 @@ const columns = [
       <Space size="middle">
         <a><PlusCircleFilled style={iconStyle}/></a>
         <a><EyeFilled style={iconStyle}/></a>
-        {/* <a><DeleteFilled style={iconStyle}/></a> */}
       </Space>
     ),
   },
