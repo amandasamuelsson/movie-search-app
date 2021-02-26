@@ -4,7 +4,6 @@ import moviePoster from '../../assets/movie-poster.jpg';
 
 const { Content } = Layout;
 
-
 export default function MovieDetails() {
 
     return(
