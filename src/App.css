@@ -41,3 +41,23 @@
         transform: rotate(360deg);
     }
 }
+
+.ant-btn-primary {
+    background-color: #564b60;
+    border-color: #564b60;
+    border: none;
+    border-radius: 0;
+}
+
+span {
+    border-radius: 0;
+}
+
+/* .ant-input-group-addon {
+    border-radius: 0;
+} */
+
+.ant-input {
+    border: 1px solid white;
+    border-radius: 0;
+}
