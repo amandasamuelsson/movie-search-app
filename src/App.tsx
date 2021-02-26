@@ -6,7 +6,7 @@ import TableSearchResults from './components/searchPage/TableSearchresults';
 
 function App() {
   return (
-    // <MovieDetails/>
+    //<MovieDetails/>
     <TableSearchResults/>
   );
 }

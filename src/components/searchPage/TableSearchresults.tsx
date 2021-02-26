@@ -8,7 +8,7 @@ const columns = [
     title: 'Titel',
     dataIndex: 'title',
     key: 'title',
-    render: (text: any) => <a>{text}</a>,
+    render: (text: string) => <a style={titleStyle}>{text}</a>,
   },
   {
     title: 'IMDB Score',
@@ -18,7 +18,7 @@ const columns = [
   {
     title: 'Actions',
     key: 'action',
-    render: (text: any, record: any) => (
+    render: () => (
       <Space size="middle">
         <a><PlusCircleFilled style={iconStyle}/></a>
         <a><EyeFilled style={iconStyle}/></a>
@@ -31,17 +31,17 @@ const columns = [
 const data = [
   {
     key: '1',
-    title: 'Movie Title1',
+    title: 'The Lord of the Rings: The Two Towers (2002)',
     imdbScore: '8.9',
   },
   {
     key: '2',
-    title: 'Movie Title2',
+    title: 'The Lord of the Rings: The Return of the King (2003)',
     imdbScore: '7.4',
   },
   {
     key: '3',
-    title: 'Movie Title3',
+    title: 'The Lord of the Rings: The Fellowship of the Ring (2001)',
     imdbScore: '8.4',
   },
 ];
@@ -49,8 +49,8 @@ const data = [
 export default function TableSearchResults() {
     return (
         <Row style={tableContainer}>
-            <Col lg={{span: 24}}>
-                <Table columns={columns} dataSource={data} />
+            <Col span={24}>
+                <Table columns={columns} dataSource={data} pagination={false} />
             </Col>
         </Row>
     );
@@ -63,4 +63,8 @@ const tableContainer: CSSProperties = {
 const iconStyle: CSSProperties = {
     color: 'grey',
     fontSize: '1.1rem',
+}
+
+const titleStyle: CSSProperties = {
+    color: '#564b60',
 }
