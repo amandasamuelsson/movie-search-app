@@ -13,11 +13,11 @@ return (
  
 <Layout style={layoutStyle}>
   <Header style={{background: 'black', borderBottom:'none'}}>
-    <img src= {logo} alt="logo" style={logoStyle} />
+    <Link to='/'><img src= {logo} alt="logo" style={logoStyle} /></Link>
     <Menu mode="horizontal" style= {menuStyle}>
-      <Link to='/'><Menu.Item key="1">Home</Menu.Item></Link>
-      <Menu.Item key="2">Watchlist</Menu.Item>
-      <Menu.Item key="3">Seen</Menu.Item>
+      <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
+      <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
+      <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
     </Menu>
   </Header>
   
