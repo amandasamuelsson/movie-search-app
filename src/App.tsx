@@ -6,10 +6,15 @@ import Navbar from './components/Navbar';
 import SearchView from './components/searchPage/SearchView';
 import SeenMoviesView from './components/seenMovies/SeenMoviesView';
 import WatchlistView from './components/watchlistPage/WatchlistView';
+import WelcomeTitle from './components/welcomePage/Titel';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <MasterView/>
+    <Router>
+      <MasterView/>
+    </Router>
+   // <WelcomeTitle /> 
   );
 }
 
