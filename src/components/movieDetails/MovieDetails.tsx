@@ -14,8 +14,8 @@ export default function MovieDetails() {
                         <Image 
                             src={moviePoster}
                             width={200}
-                            style={poster}
-                        ></Image>
+                            style={poster}>
+                        </Image>
                     </Col>
                     <Col lg={{span: 16}}>
                         <h2 style={movieTitle}>Lord of the Rings: The fellowship of the ring (2001)</h2>
