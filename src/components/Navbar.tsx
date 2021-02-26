@@ -2,6 +2,7 @@ import { Menu } from 'antd';
 import { Layout } from 'antd';
 import { CSSProperties } from 'react';
 import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -14,7 +15,7 @@ return (
   <Header style={{background: 'black', borderBottom:'none'}}>
     <img src= {logo} alt="logo" style={logoStyle} />
     <Menu mode="horizontal" style= {menuStyle}>
-      <Menu.Item key="1">Home</Menu.Item>
+      <Link to='/'><Menu.Item key="1">Home</Menu.Item></Link>
       <Menu.Item key="2">Watchlist</Menu.Item>
       <Menu.Item key="3">Seen</Menu.Item>
     </Menu>
