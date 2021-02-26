@@ -1,9 +1,14 @@
 import { Row, Col } from 'antd';
+import { Input, Space } from 'antd';
 import Layout from 'antd/lib/layout/layout';
 import React, { CSSProperties } from 'react'; 
 
 
+const { Search } = Input;
+
 function WelcomeTitle() {
+    const onSearch = (value: String) => console.log(value);
+
     return (
         <Layout style={layoutStyle}> 
             <Row>
@@ -12,6 +17,11 @@ function WelcomeTitle() {
                     Search for movies, see the details and rating, add them to your watchlist.</h1> 
                 </Col>
             </Row>
+            <div>
+            <Space direction="vertical">
+                <Search style={searchInput} placeholder="Search for a movie" onSearch={onSearch} enterButton />
+            </Space>
+            </div>  
         </Layout>
     )
 }
@@ -37,6 +47,11 @@ const headline: CSSProperties = {
     alignItems: 'center'
 }
 
+const searchInput: CSSProperties = {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+}
 
 
 export default WelcomeTitle; 

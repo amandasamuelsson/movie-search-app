@@ -5,15 +5,15 @@ const { Search } = Input;
 export default function SearchInput() {
 
 
-const onSearch = (value: String) => console.log(value);
+    const onSearch = (value: String) => console.log(value);
 
-return (
-    <div>
-        <Space direction="vertical">
-            <Search style={searchInput} placeholder="input search text" onSearch={onSearch} enterButton />
-        </Space>
-  </div>
-);
+    return (
+        <div>
+            <Space direction="vertical">
+                <Search style={searchInput} placeholder="input search text" onSearch={onSearch} enterButton />
+            </Space>
+        </div>
+    );
 }
 
 const searchInput: CSSProperties = {
