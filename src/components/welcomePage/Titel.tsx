@@ -1,26 +1,64 @@
 import { Row, Col } from 'antd';
 import Layout from 'antd/lib/layout/layout';
 import React, { CSSProperties } from 'react'; 
+import TableSearchResults from '../searchPage/TableSearchresults';
 import SearchInput from './SearchInput';
 
+export interface MovieItem {
+    key: string;
+    title: string;
+    imdbScore: string;
+}
+interface State {
+    movieItems?: MovieItem[];
+}
 
-function WelcomeTitle() {
 
-    return (
-        <Layout style={layoutStyle}> 
-            <Row>
-                <Col span={24}>
-                    <h1 style={headline}>Welcome to your favourite movie search app!</h1>
-                    <h3 style={tagline}>Search for movies, see the details and rating, add them to your watchlist.</h3> 
-                </Col>
-            </Row>
-            <Row>
-                <Col span={24}>
-                    <SearchInput />
-                </Col>
-            </Row>
-        </Layout>
-    )
+
+class WelcomeTitle extends React.Component<State> {
+
+    state: State = {
+        movieItems: []
+    }
+
+    // handleSearch = () => {
+    //     const item = {
+    //         key: '1',
+    //         title: 'The Lord of the Rings: The Two Towers (2002)',
+    //         imdbScore: '8.9', 
+    //     }
+    //     this.setState({ movieItems: [item] })
+    // }
+
+    handleSearch = (movieItems: MovieItem[]) => {
+        const item = {
+            key: '1',
+            title: 'The Lord of the Rings: The Two Towers (2002)',
+            imdbScore: '8.9', 
+        }
+        this.setState({ movieItems: movieItems })
+    }
+
+    render() {
+        return(
+            <Layout style={layoutStyle}> 
+                <Row>
+                    <Col span={24}>
+                        <h1 style={headline}>Welcome to your favourite movie search app!</h1>
+                        <h3 style={tagline}>Search for movies, see the details and rating, add them to your watchlist.</h3> 
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={24}>
+                        <SearchInput 
+                        handleSearch={this.handleSearch}/>
+                    </Col>
+                </Row>
+                <TableSearchResults
+                data={this.state.movieItems}/>
+            </Layout>
+        )
+    }
 }
 
 const layoutStyle: CSSProperties = {

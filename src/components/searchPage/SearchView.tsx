@@ -8,7 +8,7 @@ export default function SearchView() {
     return (
         <Layout style={containerStyle}>
             <TitleSearch/>
-            <TableSearchResults/>
+            {/* <TableSearchResults/> */}
         </Layout>
     );
 }

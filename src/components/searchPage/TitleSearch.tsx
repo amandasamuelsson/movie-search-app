@@ -9,7 +9,7 @@ export default function TitleSearch() {
         <Layout style={titleSearch}>
             <Row>
                 <Col span={24}>
-                    <SearchInput />
+                    
                 </Col>
             </Row>
         </Layout>

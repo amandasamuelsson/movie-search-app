@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { PlusCircleFilled, EyeFilled, DeleteFilled } from '@ant-design/icons';
+import { MovieItem } from '../welcomePage/Titel';
 
 
 const columns = [
@@ -45,15 +46,23 @@ const data = [
   },
 ];
 
-export default function TableSearchResults() {
-    return (
-        <Row style={tableContainer}>
-            <Col span={24}>
-                <Table columns={columns} dataSource={data} pagination={false} />
-            </Col>
-        </Row>
-    );
+interface Props {
+  data?: MovieItem[];
 }
+
+class TableSearchResults extends React.Component<Props> {
+  render() {
+    return (
+      <Row style={tableContainer}>
+          <Col span={24}>
+              <Table columns={columns} dataSource={this.props.data} pagination={false} />
+          </Col>
+      </Row>
+    )
+  }
+}
+
+export default TableSearchResults;
 
 const tableContainer: CSSProperties = {
     margin: '3rem',
