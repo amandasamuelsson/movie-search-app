@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { PlusCircleFilled, EyeFilled, DeleteFilled } from '@ant-design/icons';
 import { MovieItem } from '../welcomePage/Titel';
+import { Link } from 'react-router-dom';
 
 
 const columns = [
@@ -9,7 +10,7 @@ const columns = [
     title: 'Titel',
     dataIndex: 'title',
     key: 'title',
-    render: (text: string) => <a style={titleStyle}>{text}</a>,
+    render: (text: string) => <Link to=''><a style={titleStyle}>{text}</a></Link>,
   },
   {
     title: 'IMDB Score',
@@ -25,24 +26,6 @@ const columns = [
         <a><EyeFilled style={iconStyle}/></a>
       </Space>
     ),
-  },
-];
-
-const data = [
-  {
-    key: '1',
-    title: 'The Lord of the Rings: The Two Towers (2002)',
-    imdbScore: '8.9',
-  },
-  {
-    key: '2',
-    title: 'The Lord of the Rings: The Return of the King (2003)',
-    imdbScore: '7.4',
-  },
-  {
-    key: '3',
-    title: 'The Lord of the Rings: The Fellowship of the Ring (2001)',
-    imdbScore: '8.4',
   },
 ];
 
@@ -66,6 +49,7 @@ export default TableSearchResults;
 
 const tableContainer: CSSProperties = {
     margin: '3rem',
+    width: '80%'
 }
 
 const iconStyle: CSSProperties = {

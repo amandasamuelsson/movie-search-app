@@ -7,8 +7,7 @@ function WelcomeView() {
     return ( 
     
     <Layout>
-            <WelcomeTitle /> 
-            
+        <WelcomeTitle />           
     </Layout>
         
     )

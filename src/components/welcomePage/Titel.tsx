@@ -13,8 +13,6 @@ interface State {
     movieItems?: MovieItem[];
 }
 
-
-
 class WelcomeTitle extends React.Component<State> {
 
     state: State = {
@@ -22,11 +20,6 @@ class WelcomeTitle extends React.Component<State> {
     }
 
     handleSearch = (movieItems: MovieItem[]) => {
-        const item = {
-            key: '1',
-            title: 'The Lord of the Rings: The Two Towers (2002)',
-            imdbScore: '8.9', 
-        }
         this.setState({ movieItems: movieItems })
     }
 
@@ -62,7 +55,7 @@ const layoutStyle: CSSProperties = {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    marginTop: '-6rem',
+    marginTop: '-6rem'
     
 }
 
@@ -71,6 +64,7 @@ const headline: CSSProperties = {
     fontSize: '3rem',
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: '4rem'
 }
 
 const tagline: CSSProperties = {

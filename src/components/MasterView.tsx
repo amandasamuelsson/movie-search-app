@@ -12,9 +12,9 @@ export default function MasterView() {
     return (
         <Layout>
             <Navbar />
-            <MovieDetails
-            imdbId={''}/>
-            {/* <Route exact path='/'>
+            {/* <MovieDetails
+            imdbId={''}/> */}
+            <Route exact path='/'>
                 <WelcomeView /> 
             </Route>
             <Route path='/watchlist'>
@@ -22,7 +22,7 @@ export default function MasterView() {
             </Route>
             <Route path='/seen'>
                 <SeenMoviesView/>
-            </Route>     */}
+            </Route>    
         </Layout>
       );
 }
