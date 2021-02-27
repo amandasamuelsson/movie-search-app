@@ -21,15 +21,6 @@ class WelcomeTitle extends React.Component<State> {
         movieItems: []
     }
 
-    // handleSearch = () => {
-    //     const item = {
-    //         key: '1',
-    //         title: 'The Lord of the Rings: The Two Towers (2002)',
-    //         imdbScore: '8.9', 
-    //     }
-    //     this.setState({ movieItems: [item] })
-    // }
-
     handleSearch = (movieItems: MovieItem[]) => {
         const item = {
             key: '1',
