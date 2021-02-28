@@ -3,6 +3,13 @@ import { Table, Space, Row, Col } from 'antd';
 import { EyeFilled, DeleteFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
+let seenList: any[] = [];
+
+function handleSeenClick(record: any) {
+  seenList.push(record)
+  localStorage.setItem('moviesSeenlist', JSON.stringify(seenList));
+}
+
 
 const columns = [
   {
@@ -19,9 +26,9 @@ const columns = [
   {
     title: 'Actions',
     key: 'action',
-    render: () => (
+    render: (record: any) => (
       <Space size="middle">
-        <a><EyeFilled style={iconStyle}/></a>
+        <a><EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/></a>
         <a><DeleteFilled style={iconStyle}/></a>
       </Space>
     ),

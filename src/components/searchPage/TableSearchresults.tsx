@@ -4,15 +4,17 @@ import { PlusCircleFilled, EyeFilled } from '@ant-design/icons';
 import { MovieItem } from '../welcomePage/Titel';
 import { Link } from 'react-router-dom';
 
-
-let watchList: { title: any; }[] = [];
-console.log(watchList)
+let watchList: any[] = [];
+let seenList: any[] = [];
 
 function handleWatchClick(record: any) {
-  console.log(record)
-  //event.preventDefault();
   watchList.push(record)
   localStorage.setItem('moviesWatchlist', JSON.stringify(watchList));
+}
+
+function handleSeenClick(record: any) {
+  seenList.push(record)
+  localStorage.setItem('moviesSeenlist', JSON.stringify(seenList));
 }
 
 const columns = [
@@ -30,10 +32,10 @@ const columns = [
   {
     title: 'Actions',
     key: 'action',
-    render: (text: string, record: any) => (
+    render: (record: any) => (
       <Space size="middle">
         <a><PlusCircleFilled style={iconStyle} onClick={() => handleWatchClick(record)}/></a>
-        <a><EyeFilled style={iconStyle}/></a>
+        <a><EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/></a>
       </Space>
     ),
   },
