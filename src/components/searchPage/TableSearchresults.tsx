@@ -1,9 +1,19 @@
 import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
-import { PlusCircleFilled, EyeFilled, DeleteFilled } from '@ant-design/icons';
+import { PlusCircleFilled, EyeFilled } from '@ant-design/icons';
 import { MovieItem } from '../welcomePage/Titel';
 import { Link } from 'react-router-dom';
 
+
+let watchList: { title: any; }[] = [];
+console.log(watchList)
+
+function handleWatchClick(record: any) {
+  console.log(record)
+  //event.preventDefault();
+  watchList.push(record)
+  localStorage.setItem('movieTitle', JSON.stringify(watchList));
+}
 
 const columns = [
   {
@@ -20,9 +30,9 @@ const columns = [
   {
     title: 'Actions',
     key: 'action',
-    render: () => (
+    render: (text: string, record: any) => (
       <Space size="middle">
-        <a><PlusCircleFilled style={iconStyle}/></a>
+        <a><PlusCircleFilled style={iconStyle} onClick={() => handleWatchClick(record)}/></a>
         <a><EyeFilled style={iconStyle}/></a>
       </Space>
     ),
@@ -34,6 +44,7 @@ interface Props {
 }
 
 class TableSearchResults extends React.Component<Props> {
+
   render() {
     return (
       <Row style={tableContainer}>
