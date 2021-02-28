@@ -12,7 +12,7 @@ function handleWatchClick(record: any) {
   console.log(record)
   //event.preventDefault();
   watchList.push(record)
-  localStorage.setItem('movieTitle', JSON.stringify(watchList));
+  localStorage.setItem('moviesWatchlist', JSON.stringify(watchList));
 }
 
 const columns = [

@@ -28,33 +28,21 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    title: 'The Lord of the Rings: The Two Towers (2002)',
-    imdbScore: '8.9',
-  },
-  {
-    key: '2',
-    title: 'The Lord of the Rings: The Return of the King (2003)',
-    imdbScore: '7.4',
-  },
-  {
-    key: '3',
-    title: 'The Lord of the Rings: The Fellowship of the Ring (2001)',
-    imdbScore: '8.4',
-  },
-];
+class TableWatchlist extends React.Component {
+  savedMovies = JSON.parse(localStorage.getItem('moviesWatchlist') || '{}');
 
-export default function TableWatchlist() {
+  render() {
     return (
         <Row style={tableContainer}>
             <Col span={24}>
-                <Table columns={columns} dataSource={data} pagination={false} />
+                <Table columns={columns} dataSource={this.savedMovies} pagination={false} />
             </Col>
         </Row>
     );
+  }
 }
+
+export default TableWatchlist;
 
 const tableContainer: CSSProperties = {
     margin: '3rem',
