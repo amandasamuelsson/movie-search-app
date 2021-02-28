@@ -1,19 +1,21 @@
 import React from 'react';
 import MovieDetails from './movieDetails/MovieDetails';
 import Navbar from './Navbar';
-import SearchView from './searchPage/SearchView';
 import SeenMoviesView from './seenMovies/SeenMoviesView';
 import WatchlistView from './watchlistPage/WatchlistView';
 import { Layout } from 'antd';
 import WelcomeView from './welcomePage/welcomeView';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+
 
 export default function MasterView() {
+
     return (
         <Layout>
             <Navbar />
-            {/* <MovieDetails
-            imdbId={''}/> */}
+            <Switch>
+                <Route path='/movie/:imdbid' component={MovieDetails}/>
+            </Switch>
             <Route exact path='/'>
                 <WelcomeView /> 
             </Route>

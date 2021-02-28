@@ -1,11 +1,8 @@
 import React, { CSSProperties } from 'react';
 import { Col, Layout, Row, Image } from 'antd';
+import { RouteComponentProps, useParams, useRouteMatch, withRouter } from 'react-router-dom';
 
 const { Content } = Layout;
-
-interface Props {
-    imdbId: string;
-}
 
 interface State {
     movieDetails: IMovieDetails | undefined;
@@ -21,14 +18,19 @@ interface IMovieDetails {
     director: string;
 }
 
-class MovieDetails extends React.Component<Props, State> {
+interface Props extends RouteComponentProps {
+    imdbid: string;
+}
 
+class MovieDetails extends React.Component<Props, State> {
+    
     state: State = {
         movieDetails: undefined
     }
 
     async componentDidMount() {
-        const result = await fetchMovieDetails('tt0372784');
+        const imdbID = (this.props.match.params as any).imdbid;
+        const result = await fetchMovieDetails(imdbID);
         const movieDetails = {
             img: result.Poster,
             title: result.Title,
@@ -68,7 +70,7 @@ class MovieDetails extends React.Component<Props, State> {
     }
 }
 
-export default MovieDetails;
+export default withRouter(MovieDetails as any);
 
 async function fetchMovieDetails(imdbId: string) {
     try {

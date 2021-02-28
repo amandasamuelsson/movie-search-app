@@ -10,12 +10,12 @@ const columns = [
     title: 'Titel',
     dataIndex: 'title',
     key: 'title',
-    render: (text: string) => <Link to=''><a style={titleStyle}>{text}</a></Link>,
+    render: (text: string, record: any) => <Link to={'/movie/' + record.key}><a style={titleStyle}>{text}</a></Link>,
   },
   {
-    title: 'IMDB Score',
-    dataIndex: 'imdbScore',
-    key: 'imdbScore',
+    title: 'Year',
+    dataIndex: 'year',
+    key: 'year',
   },
   {
     title: 'Actions',

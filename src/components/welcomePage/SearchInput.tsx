@@ -14,7 +14,7 @@ class SearchInput extends React.Component<Props> {
             return {
                 key: item.imdbID,
                 title: item.Title,
-                imdbScore: '1',
+                year: item.Year,
             }
         });
         this.props.handleSearch(movieItems);
