@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Col, Layout, Row, Image } from 'antd';
-import { RouteComponentProps, useParams, useRouteMatch, withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 const { Content } = Layout;
 
@@ -11,6 +11,7 @@ interface State {
 interface IMovieDetails {
     img: string;
     title: string;
+    year: string;
     genre: string;
     imdbScore: string;
     overview: string;
@@ -34,6 +35,7 @@ class MovieDetails extends React.Component<Props, State> {
         const movieDetails = {
             img: result.Poster,
             title: result.Title,
+            year: result.Year,
             genre: result.Genre,
             imdbScore: result.Ratings[0].Value,
             overview: result.Plot,
@@ -56,12 +58,12 @@ class MovieDetails extends React.Component<Props, State> {
                             </Image>
                         </Col>
                         <Col lg={{span: 16}}>
-                            <h2 style={movieTitle}>{this.state.movieDetails?.title}</h2>
+                            <h2 style={movieTitle}>{this.state.movieDetails?.title} ({this.state.movieDetails?.year})</h2>
                             <h3 style={genre}>{this.state.movieDetails?.genre}</h3>
-                            <h3 style={imdbScore}>{this.state.movieDetails?.imdbScore}</h3>
+                            <h3 style={imdbScore}><strong>IMDB:</strong> {this.state.movieDetails?.imdbScore}</h3>
                             <p>{this.state.movieDetails?.overview}</p>
-                            <p>Actors: {this.state.movieDetails?.actors}</p>
-                            <p>Director: {this.state.movieDetails?.director}</p>
+                            <p><strong>Actors:</strong> {this.state.movieDetails?.actors}</p>
+                            <p><strong>Director:</strong> {this.state.movieDetails?.director}</p>
                         </Col>
                     </Row>
                 </Content>
@@ -99,6 +101,7 @@ const movieDetailContainer: CSSProperties = {
 const movieTitle: CSSProperties = {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: '1.7rem'
 }
 
 const genre: CSSProperties = {
