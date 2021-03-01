@@ -2,14 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { EyeFilled, DeleteFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-
-let seenList: any[] = [];
-
-function handleSeenClick(record: any) {
-  seenList.push(record)
-  localStorage.setItem('moviesSeenlist', JSON.stringify(seenList));
-}
-
+import { handleSeenClick } from '../localstorageUtils';
 
 const columns = [
   {
@@ -36,7 +29,7 @@ const columns = [
 ];
 
 class TableWatchlist extends React.Component {
-  savedMovies = JSON.parse(localStorage.getItem('moviesWatchlist') || '{}');
+  savedMovies = JSON.parse(localStorage.getItem('moviesWatchList') || '{}');
 
   render() {
     return (

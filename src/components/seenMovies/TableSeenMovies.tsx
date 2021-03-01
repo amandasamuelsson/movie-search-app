@@ -28,7 +28,7 @@ const columns = [
 ];
 
 export default function TableSeenMovies() {
-  const savedMovies = JSON.parse(localStorage.getItem('moviesSeenlist') || '{}');
+  const savedMovies = JSON.parse(localStorage.getItem('moviesSeenList') || '{}');
 
     return (
         <Row style={tableContainer}>

@@ -3,19 +3,10 @@ import { Table, Space, Row, Col } from 'antd';
 import { PlusCircleFilled, EyeFilled } from '@ant-design/icons';
 import { MovieItem } from '../welcomePage/Titel';
 import { Link } from 'react-router-dom';
+import { handleSeenClick, handleWatchClick } from '../localstorageUtils';
 
-let watchList: any[] = [];
-let seenList: any[] = [];
 
-function handleWatchClick(record: any) {
-  watchList.push(record)
-  localStorage.setItem('moviesWatchlist', JSON.stringify(watchList));
-}
 
-function handleSeenClick(record: any) {
-  seenList.push(record)
-  localStorage.setItem('moviesSeenlist', JSON.stringify(seenList));
-}
 
 const columns = [
   {
