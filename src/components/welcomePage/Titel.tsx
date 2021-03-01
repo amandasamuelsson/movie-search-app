@@ -34,12 +34,13 @@ class WelcomeTitle extends React.Component<State> {
                 </Row>
                 <Row>
                     <Col span={24}>
-                        <SearchInput 
+                        <SearchInput
                         handleSearch={this.handleSearch}/>
                     </Col>
                 </Row>
                 <TableSearchResults
-                data={this.state.movieItems}/>
+                    data={this.state.movieItems}
+                />
             </Layout>
         )
     }

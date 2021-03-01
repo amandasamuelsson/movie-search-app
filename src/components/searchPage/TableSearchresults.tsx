@@ -36,6 +36,9 @@ interface Props {
 class TableSearchResults extends React.Component<Props> {
 
   render() {
+    if (!this.props.data?.length || false) {
+      return <div></div>
+    }
     return (
       <Row style={tableContainer}>
           <Col span={24}>
