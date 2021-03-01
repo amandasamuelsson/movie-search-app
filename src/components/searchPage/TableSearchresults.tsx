@@ -33,23 +33,20 @@ interface Props {
   data?: MovieItem[];
 }
 
-class TableSearchResults extends React.Component<Props> {
+export default function TableSearchResults(props: Props) {
 
-  render() {
-    if (!this.props.data?.length || false) {
-      return <div></div>
-    }
-    return (
-      <Row style={tableContainer}>
-          <Col span={24}>
-              <Table columns={columns} dataSource={this.props.data} pagination={false} />
-          </Col>
-      </Row>
-    )
+  if (!props.data?.length || false) {
+    return <div></div>
   }
-}
 
-export default TableSearchResults;
+  return( 
+    <Row style={tableContainer}>
+        <Col span={24}>
+            <Table columns={columns} dataSource={props.data} pagination={false} />
+        </Col>
+    </Row>
+  )
+}
 
 const tableContainer: CSSProperties = {
     margin: '3rem',
