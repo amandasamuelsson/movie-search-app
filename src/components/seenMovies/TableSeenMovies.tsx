@@ -27,17 +27,21 @@ const columns = [
   },
 ];
 
-export default function TableSeenMovies() {
-  const savedMovies = JSON.parse(localStorage.getItem('moviesSeenList') || '{}');
+class TableSeenMovies extends React.Component {
+  savedMovies = JSON.parse(localStorage.getItem('moviesSeenList') || '{}');
 
+  render() {
     return (
         <Row style={tableContainer}>
             <Col span={24}>
-                <Table columns={columns} dataSource={savedMovies} pagination={false} />
+                <Table columns={columns} dataSource={this.savedMovies} pagination={false} />
             </Col>
         </Row>
     );
+  }
 }
+
+export default TableSeenMovies;
 
 const tableContainer: CSSProperties = {
     margin: '3rem',

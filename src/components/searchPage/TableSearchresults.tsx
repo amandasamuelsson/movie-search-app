@@ -5,9 +5,6 @@ import { MovieItem } from '../welcomePage/Titel';
 import { Link } from 'react-router-dom';
 import { handleSeenClick, handleWatchClick } from '../localstorageUtils';
 
-
-
-
 const columns = [
   {
     title: 'Titel',

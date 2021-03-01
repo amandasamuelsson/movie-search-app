@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { EyeFilled, DeleteFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { handleSeenClick } from '../localstorageUtils';
+import { handleSeenClick, removeWatchlistItem } from '../localstorageUtils';
 
 const columns = [
   {
@@ -22,7 +22,7 @@ const columns = [
     render: (record: any) => (
       <Space size="middle">
         <a><EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/></a>
-        <a><DeleteFilled style={iconStyle}/></a>
+        <a><DeleteFilled style={iconStyle} onClick={() => removeWatchlistItem(record)}/></a>
       </Space>
     ),
   },
