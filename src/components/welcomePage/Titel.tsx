@@ -45,6 +45,8 @@ class WelcomeTitle extends React.Component<State> {
     }
 }
 
+export default WelcomeTitle; 
+
 const layoutStyle: CSSProperties = {
     backgroundImage: 'url(https://github.com/amandasamuelsson/movie-search-app/blob/master/src/assets/background.png?raw=true)',
     backgroundSize: 'cover',
@@ -75,4 +77,3 @@ const tagline: CSSProperties = {
     marginBottom: '3.2rem',
 }
 
-export default WelcomeTitle; 
