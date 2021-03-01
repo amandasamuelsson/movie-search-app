@@ -83,7 +83,7 @@ class EditableTable extends React.Component<EditableTableProps, EditableTableSta
         key: 'action',
         render: (record: any) => (
           <Space size="middle">
-            <a><EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/></a>
+            <a><EyeFilled style={iconStyle} onClick={() => this.handleSeen(record)}/></a>
             <a><DeleteFilled style={iconStyle} onClick={() => this.handleDelete(record.key)}/></a>
           </Space>
         ),
@@ -97,28 +97,29 @@ class EditableTable extends React.Component<EditableTableProps, EditableTableSta
     };
   }
 
+  //Deletar både från tabellen och LS
   handleDelete = (key: React.Key) => {
-    console.log(key);
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
     removeWatchlistItem(key as string);
   };
 
+  handleSeen = (record: MovieItem) => {
+    const dataSource = [...this.state.dataSource];
+    this.setState({ dataSource: dataSource.filter(item => item.key !== record.key) });
+    handleSeenClick(record);
+    removeWatchlistItem(record.key);
+  };
+
   render() {
     const { dataSource } = this.state;
-    const components = {
-      body: {
-        row: EditableRow,
-      },
-    };
+
     return (
       <div>
         <Table
-          components={components}
-          rowClassName={() => 'editable-row'}
-          bordered
           dataSource={dataSource}
           columns={this.columns}
+          pagination={false}
         />
       </div>
     );
@@ -139,7 +140,7 @@ class TableWatchlist extends React.Component<State> {
     return (
         <Row style={tableContainer}>
             <Col span={24}>
-                <EditableTable columns={columns} pagination={false} />
+                <EditableTable columns={columns} />
             </Col>
         </Row>
     );

@@ -1,6 +1,6 @@
 import { MovieItem } from "./welcomePage/Titel";
 
-export function handleSeenClick(record: any) {
+export function handleSeenClick(record: MovieItem) {
     let seenItems = JSON.parse(localStorage.getItem('moviesSeenList') as string) || [];
     seenItems.push(record);
     localStorage.setItem('moviesSeenList', JSON.stringify(seenItems));
@@ -14,7 +14,6 @@ export function handleWatchClick(record: any) {
 
 export function removeWatchlistItem(key: string) {
     let watchItems = JSON.parse(localStorage.getItem('moviesWatchList') as string) || [];
-    //watchItems.splice(Number(record.key), 1);
     const newItems = watchItems.filter((item: MovieItem) => item.key !== key);
     localStorage.setItem('moviesWatchList', JSON.stringify(newItems));
     
