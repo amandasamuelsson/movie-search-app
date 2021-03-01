@@ -1,26 +1,48 @@
 import { Row, Col } from 'antd';
 import Layout from 'antd/lib/layout/layout';
 import React, { CSSProperties } from 'react'; 
+import TableSearchResults from '../searchPage/TableSearchresults';
 import SearchInput from './SearchInput';
 
+export interface MovieItem {
+    key: string;
+    title: string;
+    imdbScore: string;
+}
+interface State {
+    movieItems?: MovieItem[];
+}
 
-function WelcomeTitle() {
+class WelcomeTitle extends React.Component<State> {
 
-    return (
-        <Layout style={layoutStyle}> 
-            <Row>
-                <Col span={24}>
-                    <h1 style={headline}>Welcome to your favourite movie search app!</h1>
-                    <h3 style={tagline}>Search for movies, see the details and rating, add them to your watchlist.</h3> 
-                </Col>
-            </Row>
-            <Row>
-                <Col span={24}>
-                    <SearchInput />
-                </Col>
-            </Row>
-        </Layout>
-    )
+    state: State = {
+        movieItems: []
+    }
+
+    handleSearch = (movieItems: MovieItem[]) => {
+        this.setState({ movieItems: movieItems })
+    }
+
+    render() {
+        return(
+            <Layout style={layoutStyle}> 
+                <Row>
+                    <Col span={24}>
+                        <h1 style={headline}>Welcome to your favourite movie search app!</h1>
+                        <h3 style={tagline}>Search for movies, see the details and rating, add them to your watchlist.</h3> 
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={24}>
+                        <SearchInput 
+                        handleSearch={this.handleSearch}/>
+                    </Col>
+                </Row>
+                <TableSearchResults
+                data={this.state.movieItems}/>
+            </Layout>
+        )
+    }
 }
 
 const layoutStyle: CSSProperties = {
@@ -33,7 +55,7 @@ const layoutStyle: CSSProperties = {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    marginTop: '-6rem',
+    marginTop: '-6rem'
     
 }
 
@@ -42,6 +64,7 @@ const headline: CSSProperties = {
     fontSize: '3rem',
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: '4rem'
 }
 
 const tagline: CSSProperties = {
