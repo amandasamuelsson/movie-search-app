@@ -1,5 +1,6 @@
 import { Layout, Col, Row } from 'antd';
 import React, { CSSProperties } from 'react'; 
+import ErrorBoundary from '../ErrorBoundary';
 import TableSearchResults from '../searchPage/TableSearchresults';
 import SearchInput from './SearchInput';
 import WelcomeTitle from './Titel';
@@ -29,14 +30,18 @@ class WelcomeView extends React.Component<State> {
                     data={this.state.movieItems}/>
                 <Row>
                     <Col span={24}>
-                        <SearchInput
-                            handleSearch={this.handleSearch}
-                        />
+                        <ErrorBoundary>
+                            <SearchInput
+                                handleSearch={this.handleSearch}
+                            />
+                        </ErrorBoundary>
                     </Col>
                 </Row>
-                    <TableSearchResults
-                        data={this.state.movieItems}
-                    />      
+                    <ErrorBoundary>
+                        <TableSearchResults
+                            data={this.state.movieItems}
+                        />      
+                    </ErrorBoundary>
             </Layout>
     )}
 }
