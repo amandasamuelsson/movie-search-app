@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { PlusCircleFilled, EyeFilled } from '@ant-design/icons';
-import { MovieItem } from '../welcomePage/Titel';
+import { MovieItem } from '../welcomePage/welcomeView';
 import { Link } from 'react-router-dom';
 import { handleSeenClick, handleWatchClick } from '../localstorageUtils';
 

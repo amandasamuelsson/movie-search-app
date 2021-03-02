@@ -3,7 +3,7 @@ import { Table, Space, Row, Col } from 'antd';
 import { EyeFilled, DeleteFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { handleSeenClick, removeWatchlistItem } from '../localstorageUtils';
-import { MovieItem } from '../welcomePage/Titel';
+import { MovieItem } from '../welcomePage/welcomeView';
 interface State {
   watchList?: MovieItem[];
 }

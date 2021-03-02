@@ -23,7 +23,13 @@ class SearchInput extends React.Component<Props> {
         return (
             <div>
                 <Space direction="vertical">
-                    <Search style={searchInput} placeholder="Search movie" onSearch={this.onSearch} enterButton />
+                    <Search 
+                        style={searchInput} 
+                        placeholder="Search movie" 
+                        size="large" 
+                        onSearch={this.onSearch} 
+                        enterButton 
+                    />
                 </Space>
             </div>
         );
@@ -36,9 +42,8 @@ const searchInput: CSSProperties = {
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: '4rem',
 }
-
-
 
 // Fetch from api.
 async function fetchFromOmdb(value: string) {

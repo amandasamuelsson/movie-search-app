@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { DeleteFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { MovieItem } from '../welcomePage/Titel';
+import { MovieItem } from '../welcomePage/welcomeView';
 import { removeSeenlistItem } from '../localstorageUtils';
 
 interface State {

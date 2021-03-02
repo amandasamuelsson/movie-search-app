@@ -1,4 +1,4 @@
-import { MovieItem } from "./welcomePage/Titel";
+import { MovieItem } from "./welcomePage/welcomeView";
 
 export function handleSeenClick(record: MovieItem) {
     let seenItems = JSON.parse(localStorage.getItem('moviesSeenList') as string) || [];
