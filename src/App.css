@@ -29,6 +29,10 @@
     border-bottom: none;
 }
 
+.ant-menu-horizontal > .ant-menu-item {
+    border-bottom: white !important;
+}
+
 .App-link {
     color: #61dafb;
 }
