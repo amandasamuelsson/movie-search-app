@@ -24,7 +24,6 @@ class SearchInput extends React.Component<Props> {
         this.props.handleSearch(movieItems);
     }
     render() {
-
         return (
             <div>
                 <Space direction="vertical">

@@ -4,7 +4,7 @@ import { MovieItem } from './welcomeView';
 
 interface Props {
     data?: MovieItem[];
-  }
+}
 
 export default function WelcomeTitle(props: Props) { 
     

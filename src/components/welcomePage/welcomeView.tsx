@@ -27,24 +27,25 @@ class WelcomeView extends React.Component<State> {
         return (
             <Layout style={layoutStyle}>
                 <WelcomeTitle 
-                    data={this.state.movieItems}/>
+                    data={this.state.movieItems}
+                />
                 <Row>
                     <Col span={24}>
-                        <ErrorBoundary>
-                            <SearchInput
-                                handleSearch={this.handleSearch}
-                            />
-                        </ErrorBoundary>
+                        <SearchInput
+                            handleSearch={this.handleSearch}
+                        />
                     </Col>
                 </Row>
-                    <ErrorBoundary>
-                        <TableSearchResults
-                            data={this.state.movieItems}
-                        />      
-                    </ErrorBoundary>
+                <ErrorBoundary>
+                    <TableSearchResults
+                        data={this.state.movieItems}
+                    />      
+                </ErrorBoundary>
             </Layout>
-    )}
+        )
+    }
 }
+
 export default WelcomeView; 
 
 const layoutStyle: CSSProperties = {
@@ -57,6 +58,5 @@ const layoutStyle: CSSProperties = {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    marginTop: '-6rem'
-    
+    marginTop: '-6rem'  
 }

@@ -26,5 +26,5 @@ export default function MasterView() {
                 <SeenMoviesView/>
             </Route>    
         </Layout>
-      );
+    );
 }

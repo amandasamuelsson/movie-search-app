@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Row, Col, Layout } from 'antd';
 
-
 export default function TitleSeenMovies() {
 
     return (
