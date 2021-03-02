@@ -18,3 +18,10 @@ export function removeWatchlistItem(key: string) {
     localStorage.setItem('moviesWatchList', JSON.stringify(newItems));
     
 }
+
+export function removeSeenlistItem(key: string) {
+  let seenItems = JSON.parse(localStorage.getItem('moviesSeenList') as string) || [];
+  const newItems = seenItems.filter((item: MovieItem) => item.key !== key);
+  localStorage.setItem('moviesSeenList', JSON.stringify(newItems));
+  
+}
