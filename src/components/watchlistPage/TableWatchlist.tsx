@@ -62,9 +62,11 @@ class TableWatchlist extends React.Component<State> {
     handleSeenClick(record);
     removeWatchlistItem(record.key);
   };
-
+  
   render() {
+
     return (
+      
         <Row style={tableContainer}>
             <Col span={24}>
                 <Table 

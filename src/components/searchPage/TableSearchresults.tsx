@@ -38,8 +38,9 @@ export default function TableSearchResults(props: Props) {
   if (!props.data?.length || false) {
     return <div></div>
   }
-
+  
   return( 
+    
     <Row style={tableContainer}>
         <Col span={24}>
             <Table columns={columns} dataSource={props.data} pagination={false} />
