@@ -28,7 +28,8 @@ class MovieDetails extends React.Component<Props, State> {
     state: State = {
         movieDetails: undefined
     }
-
+    
+    
     async componentDidMount() {
         const imdbID = (this.props.match.params as any).imdbid;
         const result = await fetchMovieDetails(imdbID);
@@ -44,6 +45,14 @@ class MovieDetails extends React.Component<Props, State> {
         }
         this.setState({ movieDetails: movieDetails });
     }
+    componentWillMount() {
+        document.body.style.backgroundColor = "#4a4a49";
+    }
+    componentWillUnmount() {
+        document.body.style.backgroundColor = "null";
+    }
+    
+   
 
     render() {
         return(

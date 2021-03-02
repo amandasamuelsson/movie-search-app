@@ -6,10 +6,12 @@ import TitleSearch from './TitleSearch';
 
 export default function SearchView() {
     return (
-        <Layout style={containerStyle}>
-            <TitleSearch/>
-            {/* <TableSearchResults/> */}
-        </Layout>
+        
+            <Layout style={containerStyle}>
+                <TitleSearch/>
+                {/* <TableSearchResults/> */}
+            </Layout>
+
     );
 }
 

@@ -1,21 +1,9 @@
 import React, { CSSProperties } from 'react';
 import { Table, Space, Row, Col } from 'antd';
 import { PlusCircleFilled, EyeFilled } from '@ant-design/icons';
-import { MovieItem } from '../welcomePage/Titel';
+import { MovieItem } from '../welcomePage/welcomeView';
 import { Link } from 'react-router-dom';
-
-let watchList: any[] = [];
-let seenList: any[] = [];
-
-function handleWatchClick(record: any) {
-  watchList.push(record)
-  localStorage.setItem('moviesWatchlist', JSON.stringify(watchList));
-}
-
-function handleSeenClick(record: any) {
-  seenList.push(record)
-  localStorage.setItem('moviesSeenlist', JSON.stringify(seenList));
-}
+import { handleSeenClick, handleWatchClick } from '../localstorageUtils';
 
 const columns = [
   {
@@ -45,20 +33,21 @@ interface Props {
   data?: MovieItem[];
 }
 
-class TableSearchResults extends React.Component<Props> {
+export default function TableSearchResults(props: Props) {
 
-  render() {
-    return (
-      <Row style={tableContainer}>
-          <Col span={24}>
-              <Table columns={columns} dataSource={this.props.data} pagination={false} />
-          </Col>
-      </Row>
-    )
+  if (!props.data?.length || false) {
+    return <div></div>
   }
+  
+  return( 
+    
+    <Row style={tableContainer}>
+        <Col span={24}>
+            <Table columns={columns} dataSource={props.data} pagination={false} />
+        </Col>
+    </Row>
+  )
 }
-
-export default TableSearchResults;
 
 const tableContainer: CSSProperties = {
     margin: '3rem',

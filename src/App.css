@@ -52,6 +52,13 @@
     border-radius: 0;
 }
 
+.ant-btn-primary:hover {
+    background-color: #9483a3;
+    border-color: #9483a3;
+    border: none;
+    border-radius: 0;
+}
+
 span {
     border-radius: 0;
 }

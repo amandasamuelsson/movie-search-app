@@ -1,11 +1,12 @@
+import React from 'react';
 import { Menu } from 'antd';
 import { Layout } from 'antd';
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import '../App.css'; 
-import ErrorBoundary from 'antd/lib/alert/ErrorBoundary';
+import ErrorBoundary from './ErrorBoundary';
 
 
 function Navbar () {
