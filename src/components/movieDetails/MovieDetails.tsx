@@ -53,7 +53,7 @@ class MovieDetails extends React.Component<Props, State> {
     }
     
    
-
+    navigateBack = () => this.props.history.goBack();
     render() {
         return(
             <Layout style={movieDetailContainer}>
@@ -73,6 +73,7 @@ class MovieDetails extends React.Component<Props, State> {
                             <p>{this.state.movieDetails?.overview}</p>
                             <p><strong>Actors:</strong> {this.state.movieDetails?.actors}</p>
                             <p><strong>Director:</strong> {this.state.movieDetails?.director}</p>
+                            <button style={buttonStyle} onClick={this.navigateBack}>Tillbaka</button>
                         </Col>
                     </Row>
                 </Content>
@@ -104,7 +105,6 @@ const movieDetailContainer: CSSProperties = {
     justifyContent: 'center',
     color: 'white',
     padding: '2rem',
-
 }
 
 const movieTitle: CSSProperties = {
@@ -122,5 +122,15 @@ const imdbScore: CSSProperties = {
 }
 
 const poster: CSSProperties = {
+    marginBottom: '2rem',
+}
+
+const buttonStyle: CSSProperties = {
+    backgroundColor: '#564b60',
+    color: 'white',
+    padding: '0.5rem',
+    fontWeight: 'bold',
+    border: 'none',
+    textDecoration: 'none',
     marginBottom: '2rem',
 }
