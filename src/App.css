@@ -27,7 +27,10 @@
 
 .ant-menu-horizontal {
     border-bottom: none;
+    box-shadow: none;
+    border: none; 
 }
+
 
 .App-link {
     color: #61dafb;
@@ -58,6 +61,12 @@ span {
 } */
 
 .ant-input {
-    border: 1px solid white;
     border-radius: 0;
+    
 }
+ 
+.ant-menu-horizontal > .ant-menu-item {
+    border-bottom: white !important;
+   }
+
+
