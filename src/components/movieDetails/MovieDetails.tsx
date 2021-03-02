@@ -32,12 +32,15 @@ class MovieDetails extends React.Component<Props, State> {
     async componentDidMount() {
         const imdbID = (this.props.match.params as any).imdbid;
         const result = await fetchMovieDetails(imdbID);
+        if (result.Response === 'False') {
+            return;
+        }
         const movieDetails = {
             img: result.Poster,
             title: result.Title,
             year: result.Year,
             genre: result.Genre,
-            imdbScore: result.Ratings[0].Value,
+            imdbScore: result.Ratings[0]?.Value || 'N/A',
             overview: result.Plot,
             actors: result.Actors,
             director: result.Director,
@@ -46,6 +49,9 @@ class MovieDetails extends React.Component<Props, State> {
     }
 
     render() {
+        if (!this.state.movieDetails?.title) {
+            return <h1 style={movieNotFound}>Could not find this movie</h1>
+        }
         return(
             <Layout style={movieDetailContainer}>
                 <Content>
@@ -114,4 +120,11 @@ const imdbScore: CSSProperties = {
 
 const poster: CSSProperties = {
     marginBottom: '2rem',
+}
+
+const movieNotFound: CSSProperties = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '3rem 0'
 }

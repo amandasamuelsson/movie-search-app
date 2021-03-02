@@ -9,7 +9,11 @@ interface Props {
 class SearchInput extends React.Component<Props> {
     
     onSearch = async (value: string) => {
-        const { Search } = await fetchFromOmdb(value);
+        const response = await fetchFromOmdb(value);
+        if (response.Response === 'False') {
+            return;
+        }
+        const { Search } = response;
         const movieItems = Search.map((item: any) => {
             return {
                 key: item.imdbID,
