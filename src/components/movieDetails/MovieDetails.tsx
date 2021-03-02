@@ -44,6 +44,14 @@ class MovieDetails extends React.Component<Props, State> {
         }
         this.setState({ movieDetails: movieDetails });
     }
+    componentWillMount() {
+        document.body.style.backgroundColor = "#4a4a49";
+    }
+    // componentWillUnmount() {
+    //     document.body.style.backgroundColor = null;
+    // }
+    
+   
 
     render() {
         return(
@@ -90,7 +98,7 @@ async function fetchMovieDetails(imdbId: string) {
 const movieDetailContainer: CSSProperties = {
     background: '#4a4a49',
     width: '100%',
-    height: '100vh',
+    height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
