@@ -1,55 +1,68 @@
 import { Menu } from 'antd';
 import { Layout } from 'antd';
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { Row, Col } from 'antd';
+import '../App.css'; 
+import ErrorBoundary from 'antd/lib/alert/ErrorBoundary';
 
 
 function Navbar () {
   const { Header } = Layout;
-
   return ( 
-  <Layout style={layoutStyle}>
-    <Header style={{background: 'black', borderBottom:'none'}}>
-      <Link to='/'><img src= {logo} alt="logo" style={logoStyle} /></Link>
-      <Menu mode="horizontal" style= {menuStyle}>
-        <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
-        <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
-        <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
-      </Menu>
-    </Header>   
-  </Layout>
+  
+  <ErrorBoundary>
+  <Header style={layoutStyle}>
+  <Row style={{width: '100%'}}>
+  <Col span={8}>
+  <Link to='/'><img src={logo} alt="logo" style={logoStyle} /></Link>
+  </Col>
+  <Col span={10} offset={6}>
+  <Menu mode="horizontal" style={menuStyle}>
+  <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
+  <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
+  <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
+  </Menu>
+  </Col>
+  </Row>
+  </Header> 
+  </ErrorBoundary>
+  
   );
-}
-
-const layoutStyle: CSSProperties = {
-  float: 'left', 
+ }
+  
+ const layoutStyle: CSSProperties = {
   width: '100%', 
   background: 'black',
   height: '6rem',
   textDecoration:'none',
   zIndex: 100,
+  display: 'flex',
+  justifyContent: 'space-between',
+  borderBottom: 'none',
   
-}
- 
-const menuStyle: CSSProperties = {
+ }
+  
+ const menuStyle: CSSProperties = {
   float: 'right',
   background: 'black', 
   color: 'white', 
   display: 'flex', 
   justifyContent: 'space-between',
-  alignItems: 'center', 
+  alignItems: 'flex-end', 
   marginTop: '1.2rem'
-}
-
-const logoStyle: CSSProperties = {
-  height: '4rem',
+ }
+  
+ const logoStyle: CSSProperties = {
+  height: window.innerWidth > 768 ? '4rem' : '2rem',
   margin: '1rem',
-  width: '12.5rem'
-
-}
-export default Navbar; 
- 
- 
-
- 
+  marginTop: window.innerWidth > 768 ? '1rem' : '2rem',
+  width: window.innerWidth > 768 ? '12.5rem' : '6rem',
+  marginRight: '10rem',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+  
+ }
+ export default Navbar;
