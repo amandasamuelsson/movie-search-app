@@ -1,24 +1,29 @@
+import React from 'react';
 import { Menu } from 'antd';
 import { Layout } from 'antd';
 import { CSSProperties } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
 
 
 function Navbar () {
   const { Header } = Layout;
-
   return ( 
-  <Layout style={layoutStyle}>
-    <Header style={{background: 'black', borderBottom:'none'}}>
-      <Link to='/'><img src= {logo} alt="logo" style={logoStyle} /></Link>
-      <Menu mode="horizontal" style= {menuStyle}>
-        <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
-        <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
-        <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
-      </Menu>
-    </Header>   
-  </Layout>
+
+  <ErrorBoundary>
+    <Layout style={layoutStyle}>
+      <Header style={{background: 'black', borderBottom:'none'}}>
+        <Link to='/'><img src= {logo} alt="logo" style={logoStyle} /></Link>
+        <Menu mode="horizontal" style= {menuStyle}>
+          <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
+          <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
+          <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
+        </Menu>
+      </Header>   
+    </Layout>
+  </ErrorBoundary>
+  
   );
 }
 

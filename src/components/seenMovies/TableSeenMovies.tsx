@@ -57,6 +57,7 @@ class TableSeenMovies extends React.Component<State> {
   };
 
   render() {
+
     return (
         <Row style={tableContainer}>
             <Col span={24}>
@@ -69,6 +70,7 @@ class TableSeenMovies extends React.Component<State> {
         </Row>
     );
   }
+  
 }
 
 export default TableSeenMovies;
