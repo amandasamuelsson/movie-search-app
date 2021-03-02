@@ -9,12 +9,12 @@ import TitleSeenMovies from './TitleSeenMovies';
 export default function SeenMoviesView() {
     return (
 
-        <ErrorBoundary>
-            <Layout style={containerStyle}>
+        <Layout style={containerStyle}>
                 <TitleSeenMovies/>
-                <TableSeenMovies/>
+                <ErrorBoundary>
+                    <TableSeenMovies/>
+                </ErrorBoundary>
             </Layout>
-        </ErrorBoundary>
         
     );
 }

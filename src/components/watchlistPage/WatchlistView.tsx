@@ -9,12 +9,12 @@ import TitleWatchlist from './TitelWatchlist';
 export default function WatchlistView() {
     return (
         
-        <ErrorBoundary>
-            <Layout style={containerStyle}>
-                <TitleWatchlist/>
+        <Layout style={containerStyle}>
+            <TitleWatchlist/>
+            <ErrorBoundary>
                 <TableWatchlist/>
-            </Layout>
-        </ErrorBoundary>
+            </ErrorBoundary>
+        </Layout>
         
     );
 }

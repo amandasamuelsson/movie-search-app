@@ -46,7 +46,9 @@ const errorStyle: CSSProperties = {
 }
 
 const textErrorStyle: CSSProperties = {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: '20px',
+    paddingTop: '0.8em'
 }
 
 const buttonErrorStyle: CSSProperties = {
