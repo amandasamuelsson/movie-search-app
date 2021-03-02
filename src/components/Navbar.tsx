@@ -1,12 +1,10 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { Layout } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import { CSSProperties } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
-import { Row, Col } from 'antd';
 import ErrorBoundary from './ErrorBoundary';
-
 
 function Navbar () {
   const { Header } = Layout;
@@ -28,9 +26,8 @@ function Navbar () {
       </Row>
     </Header> 
   </ErrorBoundary>
-  
   );
- }
+}
   
  const layoutStyle: CSSProperties = {
   width: '100%', 
@@ -40,8 +37,7 @@ function Navbar () {
   zIndex: 100,
   display: 'flex',
   justifyContent: 'space-between',
-  borderBottom: 'none',
-  
+  borderBottom: 'none',  
  }
   
  const menuStyle: CSSProperties = {
@@ -62,7 +58,7 @@ function Navbar () {
   marginRight: '10rem',
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
-  
+  alignItems: 'center' 
  }
+ 
  export default Navbar;
