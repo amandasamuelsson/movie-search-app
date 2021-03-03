@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { Input, Space } from 'antd';
+import axios from 'axios';
 
 const { Search } = Input;
 
@@ -10,10 +11,10 @@ class SearchInput extends React.Component<Props> {
     
     onSearch = async (value: string) => {
         const response = await fetchFromOmdb(value);
-        if (response.Response === 'False') {
+        if (response?.data.Response === 'False') {
             return;
         }
-        const { Search } = response;
+        const { Search } = response?.data;
         const movieItems = Search.map((item: any) => {
             return {
                 key: item.imdbID,
@@ -52,11 +53,8 @@ const searchInput: CSSProperties = {
 // Fetch from api.
 async function fetchFromOmdb(value: string) {
     try {
-        const url = `http://www.omdbapi.com/?s=${value}&apikey=5063ce0d`;
-        const result = await fetch(url);
-        const data = await result.json();
-        console.log(data);
-        return data;
+        const response = await axios.get(`http://www.omdbapi.com/?s=${value}&apikey=5063ce0d`);
+        return response;
         
     } catch (error) {
         console.log(error);
