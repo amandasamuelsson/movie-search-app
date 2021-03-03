@@ -8,24 +8,24 @@ import ErrorBoundary from './ErrorBoundary';
 
 function Navbar () {
   const { Header } = Layout;
-  return ( 
   
-  <ErrorBoundary>
-    <Header style={layoutStyle}>
-      <Row style={{width: '100%'}}>
-        <Col span={8}>
-          <Link to='/'><img src={logo} alt="logo" style={logoStyle} /></Link>
-        </Col>
-        <Col span={10} offset={6}>
-          <Menu mode="horizontal" style={menuStyle}>
-            <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
-            <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
-            <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
-          </Menu>
-        </Col>
-      </Row>
-    </Header> 
-  </ErrorBoundary>
+  return (  
+    <ErrorBoundary>
+      <Header style={layoutStyle}>
+        <Row style={{width: '100%'}}>
+          <Col span={8}>
+            <Link to='/'><img src={logo} alt="logo" style={logoStyle} /></Link>
+          </Col>
+          <Col span={10} offset={6}>
+            <Menu mode="horizontal" style={menuStyle}>
+              <Menu.Item key="1"><Link to='/' style={{color: 'white'}}>Home</Link></Menu.Item>
+              <Menu.Item key="2"><Link to='/watchlist' style={{color: 'white'}}>Watchlist</Link></Menu.Item>
+              <Menu.Item key="3"><Link to='/seen' style={{color: 'white'}}>Seen</Link></Menu.Item>
+            </Menu>
+          </Col>
+        </Row>
+      </Header> 
+    </ErrorBoundary>
   );
 }
   

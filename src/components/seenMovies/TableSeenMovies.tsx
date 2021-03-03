@@ -4,14 +4,12 @@ import { DeleteFilled } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { MovieItem } from '../welcomePage/welcomeView';
 import { removeSeenlistItem } from '../localstorageUtils';
-
 interface State {
   seenList?: MovieItem[];
 }
 
 type EditableTableProps = Parameters<typeof Table>[0];
 type ColumnTypes = Exclude<EditableTableProps['columns'], undefined>;
-
 class TableSeenMovies extends React.Component<State> {
   columns: (ColumnTypes[number])[];
   state: State = {
@@ -57,20 +55,18 @@ class TableSeenMovies extends React.Component<State> {
   };
 
   render() {
-
     return (
-        <Row style={tableContainer}>
-            <Col span={24}>
-                <Table 
-                  columns={this.columns} 
-                  dataSource={this.state.seenList} 
-                  pagination={false}
-                />
-            </Col>
-        </Row>
+      <Row style={tableContainer}>
+        <Col span={24}>
+            <Table 
+              columns={this.columns} 
+              dataSource={this.state.seenList} 
+              pagination={false}
+            />
+        </Col>
+      </Row>
     );
   }
-  
 }
 
 export default TableSeenMovies;

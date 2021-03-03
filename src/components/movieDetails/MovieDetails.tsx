@@ -3,11 +3,9 @@ import { Col, Layout, Row, Image } from 'antd';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 const { Content } = Layout;
-
 interface State {
     movieDetails: IMovieDetails | undefined;
 }
-
 interface IMovieDetails {
     img: string;
     title: string;
@@ -18,18 +16,15 @@ interface IMovieDetails {
     actors: string;
     director: string;
 }
-
 interface Props extends RouteComponentProps {
     imdbid: string;
 }
-
 class MovieDetails extends React.Component<Props, State> {
     
     state: State = {
         movieDetails: undefined
     }
-    
-    
+
     async componentDidMount() {
         const imdbID = (this.props.match.params as any).imdbid;
         const result = await fetchMovieDetails(imdbID);
@@ -47,16 +42,15 @@ class MovieDetails extends React.Component<Props, State> {
             director: result.Director,
         }
         this.setState({ movieDetails: movieDetails });
-    }
-    componentWillMount() {
         document.body.style.backgroundColor = "#4a4a49";
     }
+
     componentWillUnmount() {
-        document.body.style.backgroundColor = "null";
+        document.body.style.backgroundColor = "#ffffff";
     }
-    
-   
+      
     navigateBack = () => this.props.history.goBack();
+    
     render() {
         if (!this.state.movieDetails?.title) {
             return <h1 style={movieNotFound}>Could not find this movie</h1>

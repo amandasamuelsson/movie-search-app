@@ -64,18 +64,16 @@ class TableWatchlist extends React.Component<State> {
   };
   
   render() {
-
-    return (
-      
-        <Row style={tableContainer}>
-            <Col span={24}>
-                <Table 
-                  columns={this.columns} 
-                  dataSource={this.state.watchList} 
-                  pagination={false}
-                />
-            </Col>
-        </Row>
+    return (    
+      <Row style={tableContainer}>
+        <Col span={24}>
+            <Table 
+              columns={this.columns} 
+              dataSource={this.state.watchList} 
+              pagination={false}
+            />
+        </Col>
+      </Row>
     );
   }
 }
