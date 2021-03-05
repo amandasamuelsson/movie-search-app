@@ -1,4 +1,4 @@
-import React, { Component, CSSProperties, ErrorInfo } from 'react';
+import { Component, CSSProperties, ErrorInfo } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 interface Props extends RouteComponentProps {}
@@ -25,8 +25,8 @@ class ErrorBoundary extends Component<Props, State> {
         if (this.state.hasError) {
             return (
                 <div style={errorStyle}>
-                    <p style={textErrorStyle}>Innehållet kunde inte laddas.</p>
-                    <button style={buttonErrorStyle} onClick={this.navigateBack}>Prova gå tillbaka</button>
+                    <p style={textErrorStyle}>Content not available.</p>
+                    <button style={buttonErrorStyle} onClick={this.navigateBack}>Go back</button>
                 </div>
             );
         }
