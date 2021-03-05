@@ -11,10 +11,13 @@ class SearchInput extends React.Component<Props> {
     
     onSearch = async (value: string) => {
         const response = await fetchFromOmdb(value);
-        if (response?.data.Response === 'False') {
+        if (!response?.data) {
             return;
         }
-        const { Search } = response?.data;
+        if (response.data.Response === 'False') {
+            return;
+        }
+        const { Search } = response.data;
         const movieItems = Search.map((item: any) => {
             return {
                 key: item.imdbID,
@@ -50,10 +53,11 @@ const searchInput: CSSProperties = {
     marginTop: '4rem',
 }
 
-// Fetch from api.
+// Fetch from api with axios.
 async function fetchFromOmdb(value: string) {
     try {
-        const response = await axios.get(`http://www.omdbapi.com/?s=${value}&apikey=5063ce0d`);
+        const url = `http://www.omdbapi.com/?s=${value}&apikey=5063ce0d`;
+        const response = await axios.get(url);
         return response;
         
     } catch (error) {

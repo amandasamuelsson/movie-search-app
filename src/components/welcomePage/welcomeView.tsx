@@ -8,7 +8,7 @@ import WelcomeTitle from './Titel';
 export interface MovieItem {
     key: string;
     title: string;
-    imdbScore: string;
+    year: string;
 }
 interface State {
     movieItems?: MovieItem[];

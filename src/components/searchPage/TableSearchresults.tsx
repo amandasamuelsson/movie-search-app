@@ -10,7 +10,9 @@ const columns = [
     title: 'Titel',
     dataIndex: 'title',
     key: 'title',
-    render: (text: string, record: any) => <Link to={'/movie/' + record.key}><a style={titleStyle}>{text}</a></Link>,
+    render: (text: string, record: MovieItem) => (
+      <Link to={'/movie/' + record.key}><a style={titleStyle}>{text}</a></Link>
+    ),
   },
   {
     title: 'Year',
@@ -20,7 +22,7 @@ const columns = [
   {
     title: 'Actions',
     key: 'action',
-    render: (record: any) => (
+    render: (record: MovieItem) => (
       <Space size="middle">
         <a><PlusCircleFilled style={iconStyle} onClick={() => handleWatchClick(record)}/></a>
         <a><EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/></a>
@@ -35,12 +37,11 @@ interface Props {
 
 export default function TableSearchResults(props: Props) {
 
-  if (!props.data?.length || false) {
+  if (!props.data?.length) {
     return <div></div>
   }
   
-  return( 
-    
+  return(     
     <Row style={tableContainer}>
         <Col span={24}>
             <Table columns={columns} dataSource={props.data} pagination={false} />

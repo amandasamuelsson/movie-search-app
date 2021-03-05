@@ -6,7 +6,7 @@ export function handleSeenClick(record: MovieItem) {
     localStorage.setItem('moviesSeenList', JSON.stringify(seenItems));
   }
 
-export function handleWatchClick(record: any) {
+export function handleWatchClick(record: MovieItem) {
     let watchItems = JSON.parse(localStorage.getItem('moviesWatchList') as string) || [];
     watchItems.push(record);
     localStorage.setItem('moviesWatchList', JSON.stringify(watchItems));   

@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Col, Layout, Row, Image } from 'antd';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 const { Content } = Layout;
 interface State {
@@ -25,24 +26,24 @@ class MovieDetails extends React.Component<Props, State> {
         movieDetails: undefined
     }
 
-    async componentDidMount() {
+    async componentDidMount() {     
+        document.body.style.backgroundColor = "#4a4a49"; 
         const imdbID = (this.props.match.params as any).imdbid;
         const result = await fetchMovieDetails(imdbID);
-        if (result.Response === 'False') {
+        if (result?.data.Response === 'False') {
             return;
         }
         const movieDetails = {
-            img: result.Poster,
-            title: result.Title,
-            year: result.Year,
-            genre: result.Genre,
-            imdbScore: result.Ratings[0]?.Value || 'N/A',
-            overview: result.Plot,
-            actors: result.Actors,
-            director: result.Director,
+            img: result?.data.Poster,
+            title: result?.data.Title,
+            year: result?.data.Year,
+            genre: result?.data.Genre,
+            imdbScore: result?.data.Ratings[0]?.Value || 'N/A',
+            overview: result?.data.Plot,
+            actors: result?.data.Actors,
+            director: result?.data.Director,
         }
         this.setState({ movieDetails: movieDetails });
-        document.body.style.backgroundColor = "#4a4a49";
     }
 
     componentWillUnmount() {
@@ -52,7 +53,10 @@ class MovieDetails extends React.Component<Props, State> {
     navigateBack = () => this.props.history.goBack();
     
     render() {
-        if (!this.state.movieDetails?.title) {
+        if (!this.state.movieDetails) {
+            return <div></div>
+        }
+        if (!this.state.movieDetails.title) {
             return <h1 style={movieNotFound}>Could not find this movie</h1>
         }
         return(
@@ -61,18 +65,18 @@ class MovieDetails extends React.Component<Props, State> {
                     <Row justify="space-around" align="middle" style={{marginTop:'8rem'}}>
                         <Col lg={{span: 8}}>
                             <Image 
-                                src={this.state.movieDetails?.img}
+                                src={this.state.movieDetails.img}
                                 width={200}
                                 style={poster}>
                             </Image>
                         </Col>
                         <Col lg={{span: 16}}>
-                            <h2 style={movieTitle}>{this.state.movieDetails?.title} ({this.state.movieDetails?.year})</h2>
-                            <h3 style={genre}>{this.state.movieDetails?.genre}</h3>
-                            <h3 style={imdbScore}><strong>IMDB:</strong> {this.state.movieDetails?.imdbScore}</h3>
-                            <p>{this.state.movieDetails?.overview}</p>
-                            <p><strong>Actors:</strong> {this.state.movieDetails?.actors}</p>
-                            <p><strong>Director:</strong> {this.state.movieDetails?.director}</p>
+                            <h2 style={movieTitle}>{this.state.movieDetails.title} ({this.state.movieDetails.year})</h2>
+                            <h3 style={genre}>{this.state.movieDetails.genre}</h3>
+                            <h3 style={imdbScore}><strong>IMDB:</strong> {this.state.movieDetails.imdbScore}</h3>
+                            <p>{this.state.movieDetails.overview}</p>
+                            <p><strong>Actors:</strong> {this.state.movieDetails.actors}</p>
+                            <p><strong>Director:</strong> {this.state.movieDetails.director}</p>
                             <button style={buttonStyle} onClick={this.navigateBack}>Tillbaka</button>
                         </Col>
                     </Row>
@@ -87,10 +91,8 @@ export default withRouter(MovieDetails as any);
 async function fetchMovieDetails(imdbId: string) {
     try {
         const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=5063ce0d`;
-        const result = await fetch(url);
-        const data = await result.json();
-        console.log(data);
-        return data;
+        const result = await axios.get(url);
+        return result;
         
     } catch (error) {
         console.log(error);
@@ -141,3 +143,5 @@ const buttonStyle: CSSProperties = {
     textDecoration: 'none',
     marginBottom: '2rem',
 }
+
+    
