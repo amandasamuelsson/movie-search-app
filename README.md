@@ -2,7 +2,6 @@
 Welcome to your favourite movie search app!
 Search for movies, see the details and rating, add them to your watchlist.
 
-[Demo](https://amandasamuelsson.github.io/movie-search-app/)
 
 Created by:
 [Moa](https://github.com/stonetwix/) 
@@ -13,6 +12,8 @@ Created by:
 ---- 
 
 In the project directory, you can run:
+
+## `npm install`
 
 ## `npm start`
 
