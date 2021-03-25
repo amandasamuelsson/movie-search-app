@@ -56,7 +56,7 @@ const searchInput: CSSProperties = {
 // Fetch from api with axios.
 async function fetchFromOmdb(value: string) {
     try {
-        const url = `http://www.omdbapi.com/?s=${value}&apikey=5063ce0d`;
+        const url = `http://www.omdbapi.com/?s=${value}&apikey=d9ef535f`;
         const response = await axios.get(url);
         return response;
         

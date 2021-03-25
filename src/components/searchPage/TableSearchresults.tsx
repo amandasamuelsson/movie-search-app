@@ -11,7 +11,7 @@ const columns = [
     dataIndex: 'title',
     key: 'title',
     render: (text: string, record: MovieItem) => (
-      <Link to={'/movie/' + record.key}><a style={titleStyle}>{text}</a></Link>
+      <Link to={'/movie/' + record.key} style={titleStyle}>{text}</Link>
     ),
   },
   {
@@ -24,8 +24,8 @@ const columns = [
     key: 'action',
     render: (record: MovieItem) => (
       <Space size="middle">
-        <a><PlusCircleFilled style={iconStyle} onClick={() => handleWatchClick(record)}/></a>
-        <a><EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/></a>
+        <PlusCircleFilled style={iconStyle} onClick={() => handleWatchClick(record)}/>
+        <EyeFilled style={iconStyle} onClick={() => handleSeenClick(record)}/>
       </Space>
     ),
   },

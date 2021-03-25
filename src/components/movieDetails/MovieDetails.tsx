@@ -90,7 +90,7 @@ export default withRouter(MovieDetails as any);
 
 async function fetchMovieDetails(imdbId: string) {
     try {
-        const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=5063ce0d`;
+        const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=d9ef535f`;
         const result = await axios.get(url);
         return result;
         

@@ -24,7 +24,7 @@ class TableWatchlist extends React.Component<State> {
         title: 'Titel',
         dataIndex: 'title',
         key: 'title',
-        render: (text: string, record: any) => <Link to={'/movie/' + record.key}><a style={titleStyle}>{text}</a></Link>,
+        render: (text: string, record: any) => <Link to={'/movie/' + record.key} style={titleStyle}> {text}</Link>,
       },
       {
         title: 'Year',
@@ -36,8 +36,8 @@ class TableWatchlist extends React.Component<State> {
         key: 'action',
         render: (record: any) => (
           <Space size="middle">
-            <a><EyeFilled style={iconStyle} onClick={() => this.handleSeen(record)}/></a>
-            <a><DeleteFilled style={iconStyle} onClick={() => this.handleDelete(record.key)}/></a>
+            <EyeFilled style={iconStyle} onClick={() => this.handleSeen(record)}/>
+            <DeleteFilled style={iconStyle} onClick={() => this.handleDelete(record.key)}/>
           </Space>
         ),
       },
